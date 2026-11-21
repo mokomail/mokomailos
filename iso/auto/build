@@ -1,5 +1,6 @@
 #!/bin/sh
-# Сборка образа MokomailOS
+# Сборка образа MokomailOS.
+# noauto обязателен: иначе lb build снова вызовет этот же скрипт.
 set -e
 
-lb build
+lb build noauto

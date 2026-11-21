@@ -38,8 +38,16 @@ jobs:
               apt-get update
               DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends live-build
               bash auto/config
-              lb build
-            "
+              bash auto/build
+            " 2>&1 | tee /tmp/build.log
+
+      - name: Build log tail (on failure)
+        if: failure()
+        run: |
+          echo '### Последние строки сборки' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tail -n 200 /tmp/build.log >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Show result
         run: ls -lh iso/*.iso
