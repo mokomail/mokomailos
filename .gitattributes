@@ -1,0 +1,5 @@
+# Все текстовые файлы — с LF, чтобы скрипты работали в Linux-сборке
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.iso binary
