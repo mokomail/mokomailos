@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Установить MokomailOS
+Name[en]=Install MokomailOS
+Comment=Установка MokomailOS на диск
+Comment[en]=Install MokomailOS to disk
+Exec=pkexec calamares
+Icon=mokomailos-logo
+Terminal=false
+Categories=System;Settings;
+Keywords=install;setup;установка;
+StartupNotify=true

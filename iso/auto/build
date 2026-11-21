@@ -1,0 +1,5 @@
+#!/bin/sh
+# Сборка образа MokomailOS
+set -e
+
+lb build

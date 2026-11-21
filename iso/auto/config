@@ -1,0 +1,26 @@
+#!/bin/sh
+# Конфигурация сборки MokomailOS
+set -e
+
+lb config noauto \
+	--mode debian \
+	--distribution trixie \
+	--architecture amd64 \
+	--archive-areas "main contrib non-free non-free-firmware" \
+	--binary-images iso-hybrid \
+	--bootloaders "syslinux,grub-efi" \
+	--uefi-secure-boot auto \
+	--image-name mokomailos \
+	--iso-application "MokomailOS" \
+	--iso-publisher "mokomail" \
+	--iso-volume "MOKOMAILOS" \
+	--linux-flavours amd64 \
+	--memtest none \
+	--debian-installer none \
+	--win32-loader false \
+	--checksums sha256 \
+	--cache false \
+	--zsync false \
+	--firmware-chroot true \
+	--bootappend-live "boot=live components hostname=mokomailos username=mokomail locales=ru_RU.UTF-8 keyboard-layouts=us,ru" \
+	--bootappend-live-failsafe "boot=live components hostname=mokomailos username=mokomail locales=ru_RU.UTF-8 keyboard-layouts=us,ru"

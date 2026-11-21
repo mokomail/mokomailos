@@ -1,0 +1,51 @@
+# Рабочий стол (Plasma 6)
+kde-plasma-desktop
+plasma-welcome
+sddm
+plasma-nm
+plasma-pa
+powerdevil
+kscreen
+systemsettings
+kde-config-sddm
+breeze
+breeze-gtk-theme
+kdeplasma-addons
+xdg-desktop-portal-kde
+kwallet-pam
+
+# Приложения
+dolphin
+konsole
+kate
+ark
+spectacle
+gwenview
+plasma-discover
+firefox-esr
+
+# Установщик на диск
+calamares
+calamares-settings-debian
+pkexec
+polkitd
+os-prober
+dosfstools
+mtools
+grub-pc-bin
+grub-efi-amd64-bin
+efibootmgr
+squashfs-tools
+
+# Система
+network-manager
+sudo
+locales
+tzdata
+xdg-user-dirs
+xdg-utils
+curl
+pipewire-audio
+wireplumber
+fonts-noto
+fonts-noto-color-emoji

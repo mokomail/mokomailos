@@ -1,0 +1,42 @@
+#!/bin/sh
+# Первичная настройка MokomailOS: выполняется один раз для каждого пользователя.
+
+MARKER="$HOME/.config/mokomailos/firstrun-done"
+[ -e "$MARKER" ] && exit 0
+
+mkdir -p "$HOME/.config/mokomailos"
+
+# Даём Plasma время поднять сессию
+i=0
+while [ "$i" -lt 20 ] && ! pgrep -x plasmashell >/dev/null 2>&1; do
+    sleep 1
+    i=$((i + 1))
+done
+sleep 2
+
+apply() { "$@" >/dev/null 2>&1 || true; }
+
+# Оформление в духе Material You
+apply plasma-apply-colorscheme Mokomail
+apply plasma-apply-desktoptheme default
+apply plasma-apply-wallpaperimage /usr/share/backgrounds/mokomailos/wallpaper.svg
+
+# Акцентный цвет (Material 3 primary)
+apply kwriteconfig6 --file kdeglobals --group General --key AccentColor "103,80,164"
+apply kwriteconfig6 --file kdeglobals --group General --key ColorScheme Mokomail
+
+# Раскладка: us + ru (winkeys), переключение по Alt+Shift
+apply kwriteconfig6 --file kxkbrc --group Layout --key Use true
+apply kwriteconfig6 --file kxkbrc --group Layout --key LayoutList "us,ru"
+apply kwriteconfig6 --file kxkbrc --group Layout --key VariantList ",winkeys"
+apply kwriteconfig6 --file kxkbrc --group Layout --key DisplayNames ",Русский"
+apply kwriteconfig6 --file kxkbrc --group Layout --key Options "grp:alt_shift_toggle"
+
+# Ярлык установщика на рабочем столе
+DESKTOP_DIR="$(xdg-user-dir DESKTOP 2>/dev/null || echo "$HOME/Desktop")"
+if [ -n "$DESKTOP_DIR" ] && [ -d "$DESKTOP_DIR" ]; then
+    cp /usr/share/applications/mokomailos-install.desktop "$DESKTOP_DIR/" 2>/dev/null || true
+    chmod +x "$DESKTOP_DIR/mokomailos-install.desktop" 2>/dev/null || true
+fi
+
+touch "$MARKER"

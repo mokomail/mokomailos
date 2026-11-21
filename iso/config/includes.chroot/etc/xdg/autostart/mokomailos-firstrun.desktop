@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=MokomailOS First Run
+Comment=Первичная настройка MokomailOS
+Exec=/usr/local/bin/mokomailos-firstrun
+Icon=mokomailos-logo
+Terminal=false
+NoDisplay=true
+OnlyShowIn=KDE;
+X-KDE-autostart-after=panel
+X-KDE-autostart-phase=2
