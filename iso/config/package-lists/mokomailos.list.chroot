@@ -10,16 +10,16 @@ systemsettings
 kde-config-sddm
 breeze
 breeze-gtk-theme
-kdeplasma-addons
+plasma-widgets-addons
 xdg-desktop-portal-kde
-kwallet-pam
+libpam-kwallet5
 
 # Приложения
 dolphin
 konsole
 kate
 ark
-spectacle
+flameshot
 gwenview
 plasma-discover
 firefox-esr
