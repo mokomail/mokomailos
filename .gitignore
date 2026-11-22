@@ -12,6 +12,9 @@ iso/config/chroot
 iso/config/common
 iso/config/source
 
+# Скачанные артефакты
+dist/
+
 # Готовые образы
 *.iso
 *.img
